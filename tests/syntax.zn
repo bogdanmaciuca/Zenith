@@ -31,7 +31,7 @@ ptr := &a; // Immutable pointer to a
 ptr_1 := &a; // Immutable pointer to immutable a
 ptr_unsafe : *mut i32 = &a; // Immutable pointer to mutable a
 
-fn Max<T: Comparable>(a: T, b: T) -> T {
+fn Max<T: Comparable>(a: &T, b: &T) -> T {
     if (a > b) { return a; }
     return b;
 }
@@ -56,13 +56,13 @@ struct Point<T: traits::Number> {
     fn New(x : T, y : T) -> Self {
         return Self{ x = x, y = y };
     }
-    // Non-static methods take a Self object pointer as the first parameter
-    // If the self argument is non mutable, this can be called in immutable Point instances
-    fn SumSquared(self: *Self) -> T {
+    // Non-static methods take a Self object pointer/reference as the first parameter
+    // If the self argument is a reference, this can be called in immutable Point instances
+    fn SumSquared(self: &Self) -> T {
         return x * x + y * y;
     }
-    // This has a mutable self argument, so it can only be called from mutable Point instances
-    fn Zero(self: *mut Self) -> T {
+    // This has a pointer for self, so it can only be called from mutable Point instances
+    fn Zero(self: *Self) -> T {
         self.x = 0;
         self.y = 0;
     }

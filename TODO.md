@@ -1,0 +1,22 @@
+# TODO:
+- [ ] Stack arrays spec
+- [ ] Pointer definition spec
+- [ ] Null pointers? spec
+- [ ] Slices spec
+- [ ] Copy and Move for structs (?)
+- [ ] Private declarations in a file spec
+- [ ] Macros spec
+- [ ] The UNWRAP macro spec
+- [ ] Define the `const` keyword spec
+- [ ] Operator overloading spec
+- [ ] Clarify argument passing
+- [ ] Syntax for immutable pointers as arguments spec
+- [ ] Literal suffixes spec
+- [ ] Operator precedence spec
+- [ ] `switch` spec
+- [ ] Enums spec
+- [ ] Casting spec
+- [ ] Metaprogramming spec
+- [ ] Compile time code execution (probably via interpreter?)
+- [ ] Define grammar (somewhat) formally
+- [ ] Step syntax for ranges (`1 ..< 10 : 2`) spec
