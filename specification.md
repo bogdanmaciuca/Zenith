@@ -140,6 +140,14 @@ If `a` is defined as mutable, then `*p` is allowed to be changed. Otherwise, `*p
 `bool`, `string`, `i8`, `u8`, `i16`, `u16`, `i32`, `u32`, `i64`, `u64`, `f32`, `f64`
 
 #### 3.3.3 Pointers
+```
+a := 256;
+
+ptr := &a; // Cannot modify ptr or a. Mutability of a is inferred
+mut ptr := &a; // Can modify ptr, cannot modify a
+ptr : *mut i32 = a; // Can modify a, cannot modify ptr
+mut ptr : *mut i32 = a; // Can modify both a and ptr
+```
 
 #### 3.3.3. Arrays
 ```

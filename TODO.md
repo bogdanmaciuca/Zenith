@@ -1,6 +1,6 @@
 # TODO:
-- [ ] Stack arrays spec
-- [ ] Pointer definition spec
+- [X] Stack arrays spec
+- [X] Pointer definition spec
 - [ ] Null pointers? spec
 - [ ] Slices spec
 - [ ] Copy and Move for structs (?)
