@@ -28,7 +28,7 @@ private:
 template<>
 class Result<void> {
 public:
-    Result(const Error& error) : m_error(error.message) {}
+    Result(const Error& error) : m_error(error.message), m_is_error(true) {}
     Result(bool success) : m_error(""), m_is_error(!success) {}
     operator bool() const {
         return !m_is_error;

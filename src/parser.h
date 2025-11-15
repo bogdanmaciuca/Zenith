@@ -2,7 +2,7 @@
 
 #include "result.h"
 
-Result<bool> InitParser() {
+Result<> InitParser();
 
-}
+Result<std::string> GenerateIR();
 
