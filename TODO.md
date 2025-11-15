@@ -2,9 +2,12 @@
 - [X] Stack arrays spec
 - [X] Pointer definition spec
 - [X] Null pointers? spec
+- [ ] Slices spec
+- [ ] Copy and Move for structs (?)
+- [ ] Private declarations in a file spec
 - [ ] Macros spec
 - [ ] The UNWRAP macro spec
-- [ ] Define the `const` keyword spec
+- [X] Define the `const` keyword spec
 - [ ] Operator overloading spec
 - [ ] Clarify argument passing
 - [ ] Syntax for immutable pointers as arguments spec
@@ -22,6 +25,3 @@
     - [ ] numbers in all reprezentations
     - [ ] strings
     - [ ] operators
-- [ ] Slices spec
-- [ ] Copy and Move for structs (?)
-- [ ] Private declarations in a file spec

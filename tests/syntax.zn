@@ -76,6 +76,19 @@ p1 : Point<f32>;
 p2 := Point<i32>{ 6, 9 };
 p3 := Point<u8>::New(4, 20);
 
+fn ReadFile(path: string) -> Result<string, string> {
+    // Reads file and returns a Result<T, E>
+}
+
+fn DoStuffWithFile(path: string) -> Result<string, string> {
+    // On success, UNWRAP returns the result value (T)
+    // On failure, it returns out of the current function
+    // with the error it got in the (E)
+    result := UNWRAP(ReadFile(path));
+
+    // Do stuff with result...
+}
+
 fn main() -> i32 {
     // if else as expression
     c := if true then "works!" else if false then "it doesn't" else "This cannot be possible!";

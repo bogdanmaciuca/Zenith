@@ -120,6 +120,17 @@ All declarations are *immutable by default*.
 
 `mut p : *const i32 = &y;` -> `p` is a mutable pointer to immutable data
 
+# 3.2.2. The `const` keyword
+"Variables" are implicitly `const`. The only time `mut` is the default is in function arguments which are pointers.
+```
+void DoStuff(obj: *T) {
+    // Here, obj is a const pointer but points to mutable data.
+}
+void DoStuffWithConst(obj: *const T) {
+    // Here, obj is a const pointer that points to const data.
+    // You should prefer a reference, unless you want a nullable pointer
+}
+```
 
 # 3.2.2. Compile-time constants
 Compile-time constants do not have a type, each expression tries to convert to whatever type it needs (if possible).
