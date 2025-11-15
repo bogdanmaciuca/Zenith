@@ -1,9 +1,10 @@
 CXX = g++
-CXXFLAGS =               \
-		   -std=c++17    \
-		   -Wall -Wextra \
-		   -g            \
-		   -I$(SRC_DIR)
+CXXFLAGS =              \
+        -std=c++17      \
+        -Wall -Wextra   \
+        -g              \
+        -MMD -MP        \
+        -I$(SRC_DIR)
 LDFLAGS =
 
 SRC_DIR = src
@@ -21,6 +22,10 @@ TEST_SOURCES = $(wildcard $(TEST_DIR)/*.cpp)
 
 OBJECTS = $(patsubst $(SRC_DIR)/%.cpp, $(OBJ_DIR)/%.o, $(SOURCES))
 TEST_OBJECTS = $(patsubst $(TEST_DIR)/%.cpp, $(TEST_OBJ_DIR)/%.o, $(TEST_SOURCES))
+
+# Get list of dependency files (.d)
+DEPS = $(OBJECTS:.o=.d)
+TEST_DEPS = $(TEST_OBJECTS:.o=.d)
 
 .PHONY: all test clean
 
@@ -67,3 +72,7 @@ clean:
 	@echo "Cleaning up..."
 	@rm -rf $(BUILD_DIR)
 
+# --- Include Dependencies ---
+
+-include $(DEPS)
+-include $(TEST_DEPS)
