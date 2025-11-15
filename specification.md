@@ -197,7 +197,8 @@ Type aliases: `alias Number = i32;`. Now `Number` can be used interchangeably wi
 Distinct types: `type ID = i32;`. Now `ID` is a new, distinct type which requires an explicit cast to `i32`.
 
 #### 3.3.7. Casting
-
+"Soft" casts can be done C-style (`i32 -> f32`, `f32 -> i32`, `void* -> char*`).
+"Hard" casts need to use the cast built-in function `cast<T>()` (`u8[4] -> i32`).
 
 ### 3.4. Slices
 Python-like slices.

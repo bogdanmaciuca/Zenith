@@ -10,13 +10,13 @@
 - [X] Define the `const` keyword spec
 - [X] Operator overloading spec
 - [X] Function overloading spec
-- [ ] Clarify argument passing
-- [ ] Syntax for immutable pointers as arguments spec
+- [X] Clarify argument passing
+- [X] Syntax for immutable pointers as arguments spec
 - [ ] Literal suffixes spec
 - [ ] Operator precedence spec
 - [ ] `switch` spec
 - [ ] Enums spec
-- [ ] Casting spec
+- [X] Casting spec
 - [ ] Metaprogramming spec
 - [ ] Compile time code execution (probably via interpreter?)
 - [ ] Define grammar (somewhat) formally
