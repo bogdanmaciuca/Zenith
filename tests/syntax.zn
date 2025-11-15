@@ -19,6 +19,10 @@ type DistinctNumber = i32;
 my_number : i32 = 123; // Constant of type i32.
 mut my_mutiable : u64; // mutable. Initialized by default with 0
 
+my_array : i32[10]; // Size must be known at compile time
+your_array : i32[10] = { 1, 4, 3, 5 };
+his_array : i32[] = { 1, 2, 3, 4, 5 }; // Size if 5
+
 // Compile time constant. Does not have a type;
 // each expression will use it as whatever type it needs
 comptime_constant :: 40;

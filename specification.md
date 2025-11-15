@@ -139,9 +139,29 @@ If `a` is defined as mutable, then `*p` is allowed to be changed. Otherwise, `*p
 #### 3.3.2. Primitives
 `bool`, `string`, `i8`, `u8`, `i16`, `u16`, `i32`, `u32`, `i64`, `u64`, `f32`, `f64`
 
-#### 3.3.3 Pointers and 
+#### 3.3.3 Pointers
 
 #### 3.3.3. Arrays
+```
+my_array : T[10]; // Size must be known at compile time
+your_array : T[10] = { 1, 4, 3, 5 };
+his_array : T[] = { 1, 2, 3, 4, 5 }; // Size is 5
+
+our_array := {...}; // Type and size will be inferred
+
+my_array_size := my_array.size;
+```
+
+Arrays of up to 4 elements will support access by component names:
+```
+position : f32[3];
+color := { 3.23, 4.35, 0.23 };
+
+// position.x <-> position[0]
+// color.r <-> color[0]
+```
+
+There will be support for matrix multiplication
 
 #### 3.3.4. Type aliases and distinct types
 Type aliases: `alias Number = i32;`. Now `Number` can be used interchangeably with `i32` and no cast is needed between the two.
@@ -319,7 +339,7 @@ struct Pair<K: Hashable, V> {
 - Result/Error structs for error handling
 - Containers (dynamic arrays, hashmap)
 - Allocators
-- Math
+- Math (operators between arrays of numbers)
 - Marker traits for all primitive types
 - Traits for all containers
 
