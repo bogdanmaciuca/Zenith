@@ -25,6 +25,7 @@ Multi-line comments cannot be nested
 - `struct`
 - `alias`
 - `type`
+- `enum`
 - `if`
 - `else`
 - `while`
@@ -97,6 +98,7 @@ Octal: `0o777`
 
 
 ## 3. Grammar
+Declarations of `namespace`, `struct`, `enum`, `fn` do not require a semicolon `;` at the end.
 
 ### 3.1. Imports and namespaces
 - Each file implicitly has its own namespace

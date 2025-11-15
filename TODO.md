@@ -26,3 +26,4 @@
     - [ ] numbers in all reprezentations
     - [ ] strings
     - [ ] operators
+- [ ] Fix Makefile
