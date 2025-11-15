@@ -148,8 +148,17 @@ mut ptr := &a; // Can modify ptr, cannot modify a
 ptr : *mut i32 = a; // Can modify a, cannot modify ptr
 mut ptr : *mut i32 = a; // Can modify both a and ptr
 ```
+Pointer **can** be null.
 
-#### 3.3.3. Arrays
+#### 3.3.4. References
+Reference can only be used in function arguments, to specify a **non-null** pointer which can also accept a temporary variable.
+```
+fn Add(obj1: &T, obj2: &T) {
+    // obj1 and obj2 cannot be modified.
+}
+```
+
+#### 3.3.5. Arrays
 ```
 my_array : T[10]; // Size must be known at compile time
 your_array : T[10] = { 1, 4, 3, 5 };
@@ -171,13 +180,18 @@ color := { 3.23, 4.35, 0.23 };
 
 There will be support for matrix multiplication
 
-#### 3.3.4. Type aliases and distinct types
+#### 3.3.6. Type aliases and distinct types
 Type aliases: `alias Number = i32;`. Now `Number` can be used interchangeably with `i32` and no cast is needed between the two.
 
 Distinct types: `type ID = i32;`. Now `ID` is a new, distinct type which requires an explicit cast to `i32`.
 
-#### 3.3.5. Casting
+#### 3.3.7. Casting
 
+
+### 3.4. Slices
+Python-like slices.
+
+Slices do not own the data, they just point to it.
 
 ### 3.5. Structs and methods
 ```

@@ -1,10 +1,7 @@
 # TODO:
 - [X] Stack arrays spec
 - [X] Pointer definition spec
-- [ ] Null pointers? spec
-- [ ] Slices spec
-- [ ] Copy and Move for structs (?)
-- [ ] Private declarations in a file spec
+- [X] Null pointers? spec
 - [ ] Macros spec
 - [ ] The UNWRAP macro spec
 - [ ] Define the `const` keyword spec
@@ -25,3 +22,6 @@
     - [ ] numbers in all reprezentations
     - [ ] strings
     - [ ] operators
+- [ ] Slices spec
+- [ ] Copy and Move for structs (?)
+- [ ] Private declarations in a file spec
