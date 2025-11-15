@@ -20,3 +20,8 @@
 - [ ] Compile time code execution (probably via interpreter?)
 - [ ] Define grammar (somewhat) formally
 - [ ] Step syntax for ranges (`1 ..< 10 : 2`) spec
+- [ ] Finish lexer
+    - [ ] comments
+    - [ ] numbers in all reprezentations
+    - [ ] strings
+    - [ ] operators
