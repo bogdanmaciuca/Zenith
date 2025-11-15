@@ -93,7 +93,7 @@ Octal: `0o777`
 `::`
 
 #### 2.5.4. Other operators:
-`.`, `,`
+`.`, `,`, `[]`
 
 
 ## 3. Grammar
@@ -248,10 +248,14 @@ fn Add(obj1: &T, obj2: &T) {
 }
 ```
 
-### 3.7. Control flow
-Paranthesis are mandatory.
+### 3.7. Operators
+Overloadable operators:
+`+`, `-`, `*`, `/`, `**`, `[]`,
 
-#### 3.7.1. If/else
+### 3.8. Control flow
+Braces are mandatory.
+
+#### 3.8.1. If/else
 *If-then-else* is an expression.
 `x := if a > b then a else b;`
 ```
@@ -267,7 +271,7 @@ else {
 }
 ```
 
-#### 3.7.2. While and for loops
+#### 3.8.2. While and for loops
 ```
 while condition {
     // Do stuff...
@@ -304,9 +308,24 @@ operations between an integer and float need explicit casting of one of the oper
 ### 4.2. Error handling (TODO)
 `Result<T, E>` will be a generic struct that holds either the result or the error. A macro UNWRAP() will be used to propagate the error through the call stack if it cannot be handled when it is encountered
 
-### 4.3. Memory model and RAII
+### 4.3. Function overloading
+```
+fn Print(x: i32) { /* ... */ }
+fn Print(x: f32) { /* ... */ }
+fn Print<T: Printable>(x: T) { /* ... */ }
+```
+#### Default arguments
+`fn Print(x: i32, y: i32 = 0) { /* ... */ }`
 
-#### 4.3.1. Allocators
+### 4.4. Operator overloading
+```
+// Can be defined anywhere after T is defined
+operator +(x: &T, y: &T) -> T { /* ... */ }
+```
+
+### 4.5. Memory model and RAII
+
+#### 4.5.1. Allocators
 There will be a global, thread_local allocator `g_global_allocator`, which will be used by default by all standard library functions (another allocator can be specified for every function). There will be an utility struct which uses RAII to change the global allocator for the current scope.
 
 ```
@@ -315,7 +334,7 @@ There will be a global, thread_local allocator `g_global_allocator`, which will 
 }
 ```
 
-#### 4.3.2. RAII
+#### 4.5.2. RAII
 Each struct will have a `New()` function which can be used for initializing (the constructor) and a `Delete()` function which will be automatically be called at the end of the scope and can also be called at the user.
 
 

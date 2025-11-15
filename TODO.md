@@ -8,7 +8,8 @@
 - [ ] Macros spec
 - [ ] The UNWRAP macro spec
 - [X] Define the `const` keyword spec
-- [ ] Operator overloading spec
+- [X] Operator overloading spec
+- [X] Function overloading spec
 - [ ] Clarify argument passing
 - [ ] Syntax for immutable pointers as arguments spec
 - [ ] Literal suffixes spec
