@@ -20,3 +20,9 @@ void PrintError(const std::string& message) {
     printf(COLOR_RED "Error" COLOR_CLEAR ": %s\n", message.c_str());
 }
 
+void PrintInternalError(const std::string& message) {
+    printf(COLOR_RED "Internal Error" COLOR_CLEAR ": %s\n", message.c_str());
+    exit(1);
+}
+
+

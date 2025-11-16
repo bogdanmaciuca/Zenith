@@ -1,9 +1,17 @@
 #include "mctest/mctest.h"
 
+#include "zenith/lexer.h"
+#include "zenith/print.h"
+
 int main() {
     MC_INIT();
-    MC_EXPECT(false, "Shit!!!");
-    MC_EXPECT(69 == 420, "NO WAY BROOOWWW");
+
+    InitLexer("(){[]}[{]}*+=-");
+    while (auto result = GetNextToken()) {
+        MC_EXPECT(result, "Error occured");
+        //PrintInfo(result.Value().lexeme);
+    }
+
     MC_EXIT();
 }
 

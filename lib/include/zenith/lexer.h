@@ -5,8 +5,8 @@
 #include "result.h"
 #include "token.h"
 
-Result<> InitLexer(const std::string& filepath);
+Result<> InitLexer(const std::string& source);
 
-Token LexToken();
+Result<Token> GetNextToken();
 
 

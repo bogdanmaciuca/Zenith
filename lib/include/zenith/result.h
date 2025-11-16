@@ -15,10 +15,13 @@ public:
     operator bool() const {
         return m_variant.index() == 0;
     }
-    T Get() const {
+    T Value() const {
         return std::get<0>(m_variant);
     }
-    std::string Error() const {
+    struct Error Error() const {
+        return (struct Error)(std::get<1>(m_variant));
+    }
+    std::string ErrorStr() const {
         return std::get<1>(m_variant);
     }
 private:

@@ -26,4 +26,6 @@
     - [ ] numbers in all reprezentations
     - [ ] strings
     - [ ] operators
-- [ ] Fix Makefile
+- [X] Restructure, create tests, separate lib from program, use CMake
+- [ ] Have a debug macro and handle debug/release builds in cmake
+- [ ] Debug lexer and get some tests working

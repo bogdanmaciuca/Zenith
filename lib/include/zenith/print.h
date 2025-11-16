@@ -8,3 +8,5 @@ void PrintWarning(const std::string& message);
 
 void PrintError(const std::string& message);
 
+void PrintInternalError(const std::string& message);
+
