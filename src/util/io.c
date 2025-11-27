@@ -29,13 +29,14 @@ void io_free_file(char *data) {
 }
 
 IO_WriteFileError io_write_binary(const char* filepath, void* data, usize size) {
-  i32 file_descriptor = open(filepath, O_WRONLY | O_CREAT, 0777);
+  i32 file_descriptor = open(filepath, O_WRONLY | O_CREAT | O_TRUNC, 0755);
   if (file_descriptor == -1) {
     return IO_WRITE_FILE_COULD_NOT_OPEN;
   }
 
   FILE* file = fdopen(file_descriptor, "wb");
   if (file == NULL) {
+    close(file_descriptor);
     return IO_WRITE_FILE_COULD_NOT_OPEN;
   }
 
@@ -44,7 +45,6 @@ IO_WriteFileError io_write_binary(const char* filepath, void* data, usize size) 
     return IO_WRITE_FILE_ERROR_WHILE_WRITING;
   }
   fclose(file);
-  close(file_descriptor);
 
   return IO_WRITE_FILE_SUCCESS;
 }

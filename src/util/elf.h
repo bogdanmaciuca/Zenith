@@ -19,7 +19,7 @@ typedef struct {
   usize   data_size;
 } ElfData;
 
-ElfCreateError elf_create(void** elf, const usize* size, const ElfData* const elf_data);
+ElfCreateError elf_create(void** elf, usize* const size, const ElfData* const elf_data);
 
 void elf_free(void* elf);
 

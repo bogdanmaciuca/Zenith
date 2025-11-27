@@ -16,3 +16,5 @@ typedef uint64_t u64;
 typedef size_t   usize;
 typedef ssize_t  ssize;
 
+#define ALIGN_UP(value, alignment) (((value) + ((alignment) - 1)) & ~((alignment) - 1))
+
