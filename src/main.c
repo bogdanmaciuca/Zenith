@@ -1,6 +1,12 @@
-#include "util/io.h"
-#include "util/elf.h"
+// TODO:
+// - debug data dump of the assembly code
+// - moving immediates
+// - recreating the test program with the assembly
+// - add underscore between module name and typename
+
 #include "util/common.h"
+#include "util/assembler.h"
+#include "util/elf.h"
 #include "util/debug.h"
 
 int main() {
@@ -27,15 +33,32 @@ int main() {
     0xf, 0x5                                 // syscall
   };
 
-  //char obj_code[] = {
-  //  0x48, 0xc7, 0xc0, 0x3c, 0x00, 0x00, 0x00,    // mov    $0x3c,%rax
-  //  0x48, 0xc7, 0xc7, 0x45, 0x00, 0x00, 0x00,    // mov    $0x45,%rdi
-  //  0x0f, 0x05,                                  // syscall
+  Assembler assembler;
+  ASSERT(
+    SUCCEEDED(assembler_create(&assembler)),
+    "Could not initialize asasembler!"
+  );
+  assembler_mov_u32_reg(&assembler, 1, REG_RAX);        // syscall write
+  assembler_mov_u32_reg(&assembler, 1, REG_RDI);        // stdout
+  assembler_mov_u64_reg(&assembler, 0x4010b0, REG_RSI); // address of "Hello!\n"
+  assembler_mov_u32_reg(&assembler, 7, REG_RDX);        // size of "Hello!\n"
+  assembler_syscall(&assembler);                        // write(stdout, addr, size);
+  assembler_mov_u32_reg(&assembler, 0x3c, REG_RAX);     // syscall exit
+  assembler_mov_u32_reg(&assembler, 0, REG_RDI);        // exit with 0
+  assembler_syscall(&assembler);                        // exit(0);
+
+  //assembler_print_code(&assembler);
+  //exit(0);
+
+  //ElfData elf_data = {
+  //  .type = ELF_EXECUTABLE,
+  //  .text = &text, .text_size = sizeof(text),
+  //  .data = &data, .data_size = sizeof(data)
   //};
 
   ElfData elf_data = {
     .type = ELF_EXECUTABLE,
-    .text = &text, .text_size = sizeof(text),
+    .text = assembler.builder.ptr, .text_size = assembler.builder.size,
     .data = &data, .data_size = sizeof(data)
   };
 

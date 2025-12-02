@@ -17,4 +17,3 @@
 #define ASSERT(condition message) (void(0));
 #endif // ZN_DEBUG
 
-
